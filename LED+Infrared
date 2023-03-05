@@ -1,0 +1,28 @@
+// Define the pin numbers for the IR sensor and LED
+int irSensorPin = 2;
+int ledPin = 13;
+
+void setup() {
+  // Set the pin modes for the IR sensor and LED
+  pinMode(irSensorPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  
+  // Turn off the LED initially
+  digitalWrite(ledPin, LOW);
+}
+
+void loop() {
+  // Read the value from the IR sensor
+  int irSensorValue = digitalRead(irSensorPin);
+  
+  // Check if an object is detected
+  if (irSensorValue == LOW) {
+    // Turn on the LED if an object is detected
+    Serial.println("detect Object");
+    digitalWrite(ledPin, HIGH);
+  } else {
+    // Turn off the LED if no object is detected
+    Serial.println("no Object");
+    digitalWrite(ledPin, LOW);
+  }
+}
