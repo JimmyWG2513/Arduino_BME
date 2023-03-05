@@ -1,0 +1,25 @@
+/*
+  E18-D80NK-Infrared-Switch 
+  made on 24 oct 2020
+  by Amir Mohammad Shojaee @ Electropeak
+  Home
+*/
+int Pin=7;
+
+ 
+void setup() {
+    pinMode(Pin, INPUT);
+    Serial.begin(9600);
+}
+ 
+void loop() {
+    int sensorValue = digitalRead(Pin);
+    if(sensorValue==LOW){ 
+        Serial.println("detect Object");
+        delay(1000);
+    }
+    else{
+        Serial.println("no Object");
+        delay(1000);
+    }
+}
