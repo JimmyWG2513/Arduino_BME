@@ -1,0 +1,21 @@
+  const int e18_sensor = 3;
+  const int relay_pin = 13;     
+
+
+void setup() {
+  Serial.begin(9600);
+  pinMode (relay_pin, OUTPUT); 
+  pinMode (e18_sensor, INPUT);
+  digitalWrite (relay_pin, HIGH);   
+}
+
+void loop() {
+  // put your main code here, to run repeatedly
+  if(digitalRead(e18_sensor)==LOW){
+  //IF sensor output is LOW (obstacle detected) write code over here
+  digitalWrite (relay_pin, LOW);   
+  delay (1000);
+  digitalWrite (relay_pin, HIGH);   
+  while(digitalRead(e18_sensor)==LOW);        //Wait till Sensor Pin Goes HIGH Again
+  }
+}
